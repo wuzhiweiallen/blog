@@ -329,6 +329,17 @@ Google的高亮插件使用也比较方便，只需要在`<pre>`的标签上加�
 
 还有一个是关于`category`的问题，根据`YAML`的语法，我们在文章头部可以定义文章所属的类别，也可以定义为`category:[blog,rss]`这样子的多类别，我在本地试一切正常，但是push到GitHub之后，就无法读取了，真让人着急，没有办法，只能采用别的办法满足我的需求了。这里还有一篇[Jekyll 本地调试之若干问题][18]，安装中如果有其他问题，也可以对照参考一下。
 
+##总结几个常用的github命令
+    $ git init
+    $ git checkout --orphan gh-pages
+    $ git add .
+    $ git commit -a -m "v0.0.1 first blood"
+    $ git remote add origin https://github.com/(github用户名)/(jekyll项目名称).git
+    $ git push origin gh-pages
+	$ git add .
+	$ git commit -a -m "自己的提交注释"
+	$ git push origin gh-pages
+
 ##结语
 如果你跟着这篇不那么详尽的教程，成功搭建了自己的博客，恭喜你！剩下的就是保持热情的去写自己的文章吧。
 
