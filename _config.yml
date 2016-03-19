@@ -3,7 +3,7 @@ auto: true
 markdown: kramdown
 pygments: true
 paginate: 8
-permalink: :title
+
 description: |
   Another fine responsive  
   site template freebie  
