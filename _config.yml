@@ -6,6 +6,7 @@ paginate: 8
 permalink: /:title
 
 title: BeiYuu.com
-url: http://beiyuu.com
+baseurl: "/blog" # the subpath of your site, e.g. /blog
+url: http://wuzhiweiallen.github.io/
 feed: /atom.xml
 author_info: <a href="http://beiyuu.com/">BeiYuu</a>
