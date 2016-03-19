@@ -5,8 +5,8 @@ pygments: true
 paginate: 8
 permalink: /:title
 
-title: BeiYuu.com
-baseurl: "/blog" # the subpath of your site, e.g. /blog
-url: http://wuzhiweiallen.github.io/
+title: http://wuzhiweiallen.github.io
+baseurl: /blog
+url: http://wuzhiweiallen.github.io
 feed: /atom.xml
-author_info: <a href="http://beiyuu.com/">BeiYuu</a>
+author_info: <a href="http://wuzhiweiallen.github.io/">zhiweiAllen</a>
