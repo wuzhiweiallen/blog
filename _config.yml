@@ -4,8 +4,11 @@ markdown: rdiscount
 pygments: true
 paginate: 8
 permalink: /:title
-
-title: http://wuzhiweiallen.github.io
+description: |
+  Another fine responsive  
+  site template freebie  
+  crafted by [HTML5 UP](http://html5up.net)
+title: Spectral
 baseurl: /blog
 url: http://wuzhiweiallen.github.io
 feed: /atom.xml
