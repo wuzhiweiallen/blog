@@ -1,15 +1,15 @@
 auto: true
 
-markdown: rdiscount
+markdown: kramdown
 pygments: true
 paginate: 8
-permalink: //:year/:month/:day/:title
+permalink: :title
 description: |
   Another fine responsive  
   site template freebie  
   crafted by [HTML5 UP](http://html5up.net)
 title: Spectral
 baseurl: /blog
-url: http://wuzhiweiallen.github.io
+url: http://wuzhiweiallen.github.io/blog
 feed: /atom.xml
-author_info: <a href="http://wuzhiweiallen.github.io/">zhiweiAllen</a>
+author_info: <a href="http://wuzhiweiallen.github.io/blog">zhiweiAllen</a>
