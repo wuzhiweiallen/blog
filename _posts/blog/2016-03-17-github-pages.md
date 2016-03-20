@@ -59,6 +59,7 @@ cmd进入rubygems-2.4.8目录下(快捷键：打开C:\Ruby22-x64\rubygems-2.4.8�
     gem sources -a https://ruby.taobao.org/ (注意：一定是https，淘宝已暂停http的ruby服务)
 
     gem sources -l
+
 验证一下. 
 
 ![sources](/blog/images/sources.png)
