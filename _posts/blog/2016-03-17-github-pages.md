@@ -1,47 +1,96 @@
 ---
 layout: post
-title: 使用Github Pages建独立博客
+title: jekyll+markdown+github搭建个人博客
 description: Github本身就是不错的代码社区，他也提供了一些其他的服务，比如Github Pages，使用它可以很方便的建立自己的独立博客，并且免费。
 category: blog
 ---
 
-[Github][]很好的将代码和社区联系在了一起，于是发生了很多有趣的事情，世界也因为他美好了一点点。Github作为现在最流行的代码仓库，已经得到很多大公司和项目的青睐，比如[jQuery][]、[Twitter][]等。为使项目更方便的被人理解，介绍页面少不了，甚至会需要完整的文档站，Github替你想到了这一点，他提供了[Github Pages][]的服务，不仅可以方便的为项目建立介绍站点，也可以用来建立个人博客。
+机器环境:Win7 64位 
 
-Github Pages有以下几个优点：
+## 前言
 
-<ul>
-    <li>轻量级的博客系统，没有麻烦的配置</li>
-    <li>使用标记语言，比如<a href="http://markdown.tw">Markdown</a></li>
-    <li>无需自己搭建服务器</li>
-    <li>根据Github的限制，对应的每个站有300MB空间</li>
-    <li>可以绑定自己的域名</li>
-</ul>
+一直想尝试搭建个自己的博客，自己写觉得太麻烦了，在网上去下载别人的项目，经常会遇到jdk版本啊，以及各种包的问题，总之是真的很恼火，后来在同事的建议下试着用jekyll+markdown+github+git来做。发现真TM是个神器。网页是静态的，你不用去考虑数据库，空间，域名等问题，在本地用markdown工具编辑好在push到你的github上就可以啊。巴适得板。下面是搭建过程。
 
-当然他也有缺点：
+## 安装rubyinstaller.
 
-* 使用[Jekyll][]模板系统，相当于静态页发布，适合博客，文档介绍等。
-* 动态程序的部分相当局限，比如没有评论，不过还好我们有解决方案。
-* 基于Git，很多东西需要动手，不像Wordpress有强大的后台
+到http://rubyinstaller.org/downloads/下载ruby安装文件，这里下载rubyinstaller-2.2.3-x64.exe，按照提示安装，勾选Add Ruby executables to your PATH.
 
-大致介绍到此，作为个人博客来说，简洁清爽的表达自己的工作、心得，就已达目标，所以Github Pages是我认为此需求最完美的解决方案了。
 
-## 购买、绑定独立域名
-虽说[Godaddy][]曾支持过SOPA，并且首页放着极其不专业的大胸美女，但是作为域名服务商他做的还不赖，选择它最重要的原因是他支持支付宝，没有信用卡有时真的很难过。
 
-域名的购买不用多讲，注册、选域名、支付，有网购经验的都毫无压力，优惠码也遍地皆是。域名的配置需要提醒一下，因为伟大英明的GFW的存在，我们必须多做些事情。
+Win7 64位默认安装位置：C:\Ruby22-x64.
 
-流传Godaddy的域名解析服务器被墙掉，导致域名无法访问，后来这个事情在[BeiYuu][]也发生了，不得已需要把域名解析服务迁移到国内比较稳定的服务商处，这个迁移对于域名来说没有什么风险，最终的控制权还是在Godaddy那里，你随时都可以改回去。
+验证ruby是否安装成功：cmd中
+ruby -v
+显示ruby版本号说明ruby安装成功.
 
-我们选择[DNSPod][]的服务，他们的产品做得不错，易用、免费，收费版有更高端的功能，暂不需要。注册登录之后，按照DNSPod的说法，只需三步（我们插入一步）：
+安装rubygems.
 
-<ul>
-	<li>首先添加域名记录，可参考DNSPod的帮助文档：<a href="https://www.dnspod.cn/Support">https://www.dnspod.cn/Support</a></li>
-	<li>在DNSPod自己的域名下添加一条<a href="http://baike.baidu.com/view/65575.htm">A记录</a>，地址就是Github Pages的服务IP地址：207.97.227.245</li>
-	<li>在域名注册商处修改DNS服务:去Godaddy修改Nameservers为这两个地址：f1g1ns1.dnspod.net、f1g1ns2.dnspod.net。如果你不明白在哪里修改，可以参考这里：<a href="https://www.dnspod.cn/support/index/fid/119">Godaddy注册的域名如何使用DNSPod</a></li>
-	<li>等待域名解析生效</li>
-</ul>
+官网下载安装包: [https://rubygems.org/pages/download](https://rubygems.org/pages/download)
 
-域名的配置部分完成，跪谢方校长。
+![installRuby](/blog/images/installRuby.png)
+
+解压rubygems-2.4.8.zip到指定目录，为了方便管理解压后放到C:\Ruby22-x64\目录下.
+
+cmd进入rubygems-2.4.8目录下(快捷键：打开C:\Ruby22-x64\rubygems-2.4.8目录，shift+鼠标右键，点击”在此处打开命令行窗口”),运行
+    ruby setup.rb
+.cmd 中
+    gem -v
+显示版本号则说明正常.
+
+安装DevKit-mingw64
+
+下载相应版本[http://rubyinstaller.org/downloads/](http://rubyinstaller.org/downloads/),在C:\Ruby22-x64\目录下新建DevKit文件夹，运行DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe后会提示解压目录，选择C:\Ruby22-x64\DevKit.
+
+在C:\Ruby22-x64\DevKit中打开cmd，运行
+    ruby dk.rb init
+，会提示配置config.yml.
+
+打开C:\Ruby22-x64\DevKit目录下的config.yml，将ruby根目录加入到配置文件中，这里是C:/Ruby22-x64.如果有了就不需要再加.注意格式.
+![config](/blog/images/config.png)
+
+执行
+
+    ruby dk.rb install.
+
+替换rubyGem库地址（相当重要，因为国内访问外网有线路问题，不仅更新速度慢，而且还会导致更新失败）
+
+    gem sources –remove https://rubygems.org/
+
+    gem sources -a https://ruby.taobao.org/ (注意：一定是https，淘宝已暂停http的ruby服务)
+
+    gem sources -l
+验证一下. 
+
+![sources](/blog/images/sources.png)
+
+安装rails
+
+cmd运行
+    gem install rails.
+
+cmd运行rails -v显示rails版本号说明安装成功.
+
+安装jekyll 
+
+cmd运行
+
+    gem install jekyll
+
+cmd运行jekyll -v验证，显示版本号说明安装成功.
+
+环境配置完整之后，下面进入正题，如何新建博客:
+
+运行命令:jekyll new 文件夹名，比如jekyll new blog，会在当前目录生成blog文件夹.
+
+![blog](/blog/images/blog.png)
+
+在生成的blog文件夹根目录下运行命令:
+
+    jekyll serve –-watch
+
+浏览器中打开localhost:4000，命令运行过程中没有错误提示，浏览器中显示默认页面说明安装成功.
+![jekyll](/blog/images/jekyll.png)
+
 
 ## 配置和使用Github
 Git是版本管理的未来，他的优点我不再赘述，相关资料很多。推荐这本[Git中文教程][4]。
@@ -159,13 +208,13 @@ Git会根据用户的名字和邮箱来记录提交。GitHub也是用这些信�
 ###绑定域名
 我们在第一部分就提到了在DNS部分的设置，再来看在GitHub的配置，要想让`username.github.io`能通过你自己的域名来访问，需要在项目的根目录下新建一个名为`CNAME`的文件，文件内容形如：
 
-    beiyuu.com
+    zhiweiwu.com
 
 你也可以绑定在二级域名上：
 
-    blog.beiyuu.com
+    blog.zhiweiwu.com
 
-需要提醒的一点是，如果你使用形如`beiyuu.com`这样的一级域名的话，需要在DNS处设置A记录到`207.97.227.245`（**这个地址会有变动，[这里][a-record]查看**），而不是在DNS处设置为CNAME的形式，否则可能会对其他服务（比如email）造成影响。
+需要提醒的一点是，如果你使用形如`zhiweiwu.com`这样的一级域名的话，需要在DNS处设置A记录到`207.97.227.245`（**这个地址会有变动，[这里][a-record]查看**），而不是在DNS处设置为CNAME的形式，否则可能会对其他服务（比如email）造成影响。
 
 设置成功后，根据DNS的情况，最长可能需要一天才能生效，耐心等待吧。
 
@@ -254,103 +303,73 @@ Jekyll的配置写在_config.yml文件中，可配置项有很多，我们不去
 
 模板变量，我们之前也涉及了不少了，还有其他需要的变量，可以参考官方的文档：[https://github.com/mojombo/jekyll/wiki/template-data](https://github.com/mojombo/jekyll/wiki/template-data "Jekyll Template Data")
 
-## 使用Disqus管理评论
-模板部分到此就算是配置完毕了，但是Jekyll只是个静态页面的发布系统，想做到关爽场倒是很容易，如果想要评论呢？也很简单。
 
-现在专做评论模块的产品有很多，比如[Disqus][]，还有国产的[多说][]，Disqus对现在各种系统的支持都比较全面，到写博客为止，多说现在仅是WordPress的一个插件，所以我这里暂时也使用不了，多说与国内的社交网络紧密结合，还是有很多亮点的，值得期待一下。我先选择了Disqus。
+## 多说评论系统
 
-注册账号什么的就不提了，Disqus支持很多的博客平台，参见下图：
-![Disqus sites](/blog/images/githubpages/disqus-site.jpg)
+多说国内使用最多的评论系统。
 
-我们选择最下面的`Universal Code`就好，然后会看到一个介绍页面，把下面这段代码复制到你的模板里面，可以只复制到显示文章的模板中：
+在做以下步骤之前，先去 duoshuo.com 上注册一个帐号，获取 short_name（我的是wuzhiweiallen）
 
-    <div id="disqus_thread"></div>
+首先按照如下格式编辑 _config.yml
+
+comments :
+provider : duoshuo
+duoshuo :
+short_name : wuzhiweiallen
+
+其次进入 _includes/ 目录创建目录 custom 以及在刚创建的 custom 目录下创建文件 duoshuo
+
+$ cd _includes; mkdir custom; cd custom ; touch duoshuo
+
+填充如下内容
+
+<!-- Duoshuo Comment BEGIN -->
+    <div id="comments">
+        <div class="ds-thread" {% if page.id %}data-thread-key="{{ page.id }}"{% endif %}  data-title="{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}"></div>
+    </div>
+<!-- Duoshuo Comment END -->
+
+在post.html中{{ content }}后面放置
+	
+	<div class="ds-thread" data-thread-key="1" data-title="create blog" data-url="http://wuzhiweiallen.github.io/blog/github-pages"></div>
+    </div>
+在body标签外放置下面的js代码
     <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'example'; // required: replace example with your forum shortname 这个地方需要改成你配置的网站名
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
+	var duoshuoQuery = {short_name:"wuzhiweiallen"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+然后你会看到这样的效果表示你的博客引入多说成功了。
 
-配置完之后，你也可以做一些异步加载的处理，提高性能，比如我就在最开始页面打开的时候不显示评论，当你想看评论的时候，点击“显示评论”再加载Disqus的模块。代码很简单，你可以参考我的写法。
-
-    $('#disqus_container .comment').on('click',function(){
-            $(this).html('加载中...');
-            var disqus_shortname = 'beiyuu';
-            var that = this;
-            BYB.includeScript('http://' + disqus_shortname + '.disqus.com/embed.js',function(){$(that).remove()}); //这是一个加载js的函数
-    });
-
-如果你不喜欢Disqus的样式，你也可以根据他生成的HTML结构，自己改写样式覆盖它的，Disqus现在也提供每个页面的评论数接口，[帮助文档][12]在这里可以看到。
-
-##代码高亮插件
-如果写技术博客，代码高亮少不了，有两个可选插件[DlHightLight代码高亮组件][13]和[Google Code Prettify][14]。DLHightLight支持的语言相对较少一些，有js、css、xml和html，Google的高亮插件基本上任何语言都支持，也可以自定义语言，也支持自动识别，也有行号的特别支持。
-
-Google的高亮插件使用也比较方便，只需要在`<pre>`的标签上加入`prettyprint`即可。所以我选择了Google Code Prettify。
-
-##搭建本地jekyll环境
-这里主要介绍一下在Mac OS X下面的安装过程，其他操作系统可以参考官方的[jekyll安装][15]。
-
-作为生活在水深火热的墙内人民，有必要进行下面一步修改gem的源，方便我们更快的下载所需组建：
-
-    sudo gem sources --remove http://rubygems.org/ 
-    sudo gem sources -a http://ruby.taobao.org/ 
-
-然后用Gem安装jekyll
-
-    $ gem install jekyll
-
-不过一般如果有出错提示，你可能需要这样安装：
-
-    $ sudo gem install jekyll
-
-我到了这一步的时候总是提示错误`Failed to build gem native extension`，很可能的一个原因是没有安装rvm，[rvm的安装][16]可以参考这里，或者敲入下面的命令：
-
-    $ curl -L https://get.rvm.io | bash -s stable --ruby
-
-然后还需要安装Markdown的解释器，这个需要在你的_config.yml里面设置`markdown:rdiscount`：
-
-    $ gem install jekyll rdiscount
-
-好了，如果一切顺利的话，本地环境就基本搭建完成了，进入之前我们建立的博客目录，运行下面的命令：
-
-    $ jekyll --server
-
-这个时候，你就可以通过`localhost:4000`来访问了。还有关于[jekyll bootstrap][17]的资料，需要自己修改调试的，可以研究一下。
-
-我在这个过程中还遇到两个诡异的没有解决的问题，一个是我放在根目录下面的blog.md等文件，在GitHub的pages服务上一切正常，可以通过`beiyuu.com/blog`访问的到，但是在本地环境下，总是`not found`，很是让人郁闷，看生成的`_site`目录下面的文件，也是正常的`blog.html`，但就是找不到，只有当我把URL改为`localhost:4000/blog.html`的时候，才能访问的到，环境不同真糟糕。
-
-还有一个是关于`category`的问题，根据`YAML`的语法，我们在文章头部可以定义文章所属的类别，也可以定义为`category:[blog,rss]`这样子的多类别，我在本地试一切正常，但是push到GitHub之后，就无法读取了，真让人着急，没有办法，只能采用别的办法满足我的需求了。这里还有一篇[Jekyll 本地调试之若干问题][18]，安装中如果有其他问题，也可以对照参考一下。
+![duoshuoComment](/blog/images/duoshuoComment.png)
 
 ## github常用的命令
 
-最常用的
-
+发布项目到github
     $ git init
     $ git checkout --orphan gh-pages
     $ git add .
     $ git commit -a -m "v0.0.1 first blood"
     $ git remote add origin https://github.com/(github用户名)/(jekyll项目名称).git
     $ git push origin gh-pages
+修改项目
 	$ git add .
 	$ git commit -a -m "自己的提交注释"
 	$ git push origin gh-pages
 
 ## 结语
 
-如果你跟着这篇不那么详尽的教程，成功搭建了自己的博客，恭喜你！剩下的就是保持热情的去写自己的文章吧。
+上面的本人搭建博客的全部过程，希望对你有帮助，谢谢！。
 
 
 
 
-[BeiYuu]:    http://beiyuu.com  "BeiYuu"
 [Github]:   http://github.com "Github"
 [jQuery]:   https://github.com/jquery/jquery "jQuery@github"
 [Twitter]:  https://github.com/twitter/bootstrap "Twitter@github"
