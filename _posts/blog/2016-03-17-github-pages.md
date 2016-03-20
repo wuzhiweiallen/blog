@@ -334,6 +334,7 @@ $ cd _includes; mkdir custom; cd custom ; touch duoshuo
 	<div class="ds-thread" data-thread-key="1" data-title="create blog" data-url="http://wuzhiweiallen.github.io/blog/github-pages"></div>
     </div>
 在body标签外放置下面的js代码
+
     <script type="text/javascript">
 	var duoshuoQuery = {short_name:"wuzhiweiallen"};
 	(function() {
@@ -345,6 +346,7 @@ $ cd _includes; mkdir custom; cd custom ; touch duoshuo
 		 || document.getElementsByTagName('body')[0]).appendChild(ds);
 	})();
     </script>
+
 然后你会看到这样的效果表示你的博客引入多说成功了。
 
 ![duoshuoComment](/blog/images/duoshuoComment.png)
@@ -352,13 +354,16 @@ $ cd _includes; mkdir custom; cd custom ; touch duoshuo
 ## github常用的命令
 
 发布项目到github
+
     $ git init
     $ git checkout --orphan gh-pages
     $ git add .
     $ git commit -a -m "v0.0.1 first blood"
     $ git remote add origin https://github.com/(github用户名)/(jekyll项目名称).git
     $ git push origin gh-pages
+
 修改项目
+
 	$ git add .
 	$ git commit -a -m "自己的提交注释"
 	$ git push origin gh-pages
