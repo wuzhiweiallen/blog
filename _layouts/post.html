@@ -19,7 +19,22 @@ layout: default
         <p class="entry-date">{{ page.date|date:"%Y-%m-%d" }}</p>
         {{ content }}
     </div>
-
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="1" data-title="create blog" data-url="http://wuzhiweiallen.github.io/blog/github-pages"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wuzhiweiallen"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
     <div class="sidenav">
         <iframe width="100%" height="75" class="share_self"  frameborder="0" scrolling="no" src="http://www.weibo.com/u/3858140889/home?topnav=1&wvr=6"></iframe>
     </div>
