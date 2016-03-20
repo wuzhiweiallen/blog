@@ -1,6 +1,6 @@
 ---
 layout: post
-title: jekyll+markdown+github搭建个人博客
+title: 使用jekyll+markdown+github+git搭建个人博客
 description: Github本身就是不错的代码社区，他也提供了一些其他的服务，比如Github Pages，使用它可以很方便的建立自己的独立博客，并且免费。
 category: blog
 ---
@@ -366,6 +366,8 @@ $ cd _includes; mkdir custom; cd custom ; touch duoshuo
 ## 结语
 
 上面的本人搭建博客的全部过程，希望对你有帮助，谢谢！。
+
+如果有问题，也请在下面留言告诉我，再次感谢！
 
 
 
