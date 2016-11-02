@@ -10,9 +10,9 @@ description: |
   crafted by [HTML5 UP](http://html5up.net)
 title: zhiweiAllen
 baseurl: /blog
-url: http://wuzhiweiallen.github.io/blog
+url: https://wuzhiweiallen.github.io/blog
 feed: /atom.xml
-author_info: <a href="http://wuzhiweiallen.github.io/blog">zhiweiAllen</a>
+author_info: <a href="https://wuzhiweiallen.github.io/blog">zhiweiAllen</a>
 comments :
   provider : duoshuo
   duoshuo :
