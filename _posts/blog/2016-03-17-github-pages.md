@@ -330,7 +330,7 @@ $ cd _includes; mkdir custom; cd custom ; touch duoshuo
     </div>
 <!-- Duoshuo Comment END -->
 
-在post.html中{{ content }}后面放置
+在post.html中content后面放置
 	
 	<div class="ds-thread" data-thread-key="1" data-title="create blog" data-url="http://wuzhiweiallen.github.io/blog/github-pages"></div>
     </div>
