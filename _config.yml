@@ -1,0 +1,19 @@
+auto: true
+
+markdown: kramdown
+pygments: true
+paginate: 8
+permalink: :title
+description: |
+  Another fine responsive  
+  site template freebie  
+  crafted by [HTML5 UP](http://html5up.net)
+title: zhiweiAllen
+baseurl: /blog
+url: https://wuzhiweiallen.github.io/blog
+feed: /atom.xml
+author_info: <a href="https://wuzhiweiallen.github.io/blog">zhiweiAllen</a>
+comments :
+  provider : duoshuo
+  duoshuo :
+    short_name : wuzhiweiallen
