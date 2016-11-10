@@ -1,5 +1,7 @@
 ---
-layout: git提交代码流程的总结
+layout: post
+layout: post
+description: git提交代码流程的总结
 title:  git提交代码
 category: blog
 ---
