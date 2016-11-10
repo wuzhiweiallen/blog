@@ -16,12 +16,12 @@ category: blog
     git stash save photo（如果allen分支还没有commit分支的改变，存储allen分支的修改信息 别名为photo）
     git checkout S-01777 （切换回S-01777分支）
     git stash list  （查看存储stach的信息）
-    git stash allpy stach@{0} (应用刚刚存储的stach@{0}到当前的分支)
+    git stash apply stach@{0} (应用刚刚存储的stach@{0}到当前的分支)
     git add .
     git commit -m "[S-01777] Phoenix - Basic Details Page "
     git review -f cruise-detail
-    git commit --amend（如果review有问题就用这个命令  然后在重新提交）
+    git commit --amend（如果review有问题就用这个命令  然后在重新提交  ）
     git review -d 9115（如果build出问题 这个命令会新建一个对应版本号的分支  在这个分支上修改好了再review会再次review到9115这个版本上去）
       
-    
+注意：在git review -d 9115 新建的分支上修改好了后 不要再次commit，否则最造成两次commit  不能review。还要需要把改变加到暂存区里 （git add .）再--amend，否则你的改变没有在commit中。
   
