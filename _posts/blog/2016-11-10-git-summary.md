@@ -27,5 +27,7 @@ category: blog
     git commit --amend（如果review有问题就用这个命令  然后在重新提交  ）
     git review -d 9115（如果build出问题 这个命令会新建一个对应版本号的分支  在这个分支上修改好了再review会再次review到9115这个版本上去）
       
-注意：在git review -d 9115 新建的分支上修改好了后 不要再次commit，否则最造成两次commit  不能review。还要需要把改变加到暂存区里 （git add .）再--amend，否则你的改变没有在commit中。
+两点注意：
+        1,在git review -d 9115 新建的分支上修改好了后 不要再次commit，否则最造成两次commit  不能review。
+		2,需要把你的changes加到暂存区里 （git add .）再--amend，否则你的改变没有在commit中。
   
