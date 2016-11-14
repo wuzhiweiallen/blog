@@ -6,6 +6,10 @@ title:  git提交代码
 category: blog
 ---
 
+
+## git常用命令 ##
+
+
 ## git提交代码流程的总结 ##
 
     git checkout master（切换到master分支）
