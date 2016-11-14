@@ -6,10 +6,6 @@ title:  git提交代码
 category: blog
 ---
 
-
-## git常用命令 ##
-
-
 ## git提交代码流程的总结 ##
 
     git checkout master（切换到master分支）
@@ -39,6 +35,8 @@ category: blog
     git commit --amend（如果review有问题就用这个命令  然后在重新提交  ）
 
     git review -d 9115（如果build出问题 这个命令会新建一个对应版本号的分支  在这个分支上修改好了再review会再次review到9115这个版本上去）
+
+-----------------------我是分割线哈-------------------------
     
     git branch -vv 	-- 查看本地分之对应在远程追踪分支
 
