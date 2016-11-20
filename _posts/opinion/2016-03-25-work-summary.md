@@ -2,7 +2,7 @@
 layout: post
 title: 工作总结
 description: 工作半年多了 总结一下工作中的问题。
-category: blog
+category: opinion
 ---
 > 
 
