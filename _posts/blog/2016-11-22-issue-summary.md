@@ -30,5 +30,5 @@ Number( cString )从字符串cString转换得到的数字，包括Int和Float类
      }
   3，Java SE 6.0 才开始提供的方法, 效率和方法二几乎相等
 	 if(s == null || s.isEmpty());
-	 }
+	 } 
 	 

@@ -11,7 +11,7 @@ description: java各章节总结传送门，真门针对复习。
 
 #### 多线程：[http://www.mamicode.com/info-detail-517008.html](http://www.mamicode.com/info-detail-517008.html)
 
-## java复习题总结
+## java复习题总结 
 
 * Java的三大特性：封装、继承和多态。
   封装:
