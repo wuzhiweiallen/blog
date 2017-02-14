@@ -19,16 +19,16 @@ Number( cString )从字符串cString转换得到的数字，包括Int和Float类
 
 * java中对于String的判空：
   判断一个字符串是否为空，首先就要确保他不是null，然后再判断他的长度。 
-	String str = xxx; 
-	if(str != null && str.length() != 0) { 
-	return true; }
-  1，直观，效率低
+	 String str = xxx; 
+	 if(str != null && str.length() != 0) { 
+	 return true; }
+1，直观，效率低
 	 if(s == null || s.equals("")){
 	 }
-  2，比较字符串长度, 效率高。
+2，比较字符串长度, 效率高。
 	 if(s == null || s.length() <= 0);
      }
-  3，Java SE 6.0 才开始提供的方法, 效率和方法二几乎相等
+3，Java SE 6.0 才开始提供的方法, 效率和方法二几乎相等
 	 if(s == null || s.isEmpty());
 	 } 
 	 
