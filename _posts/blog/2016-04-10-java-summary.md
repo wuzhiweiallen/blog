@@ -80,9 +80,8 @@ description: java各章节总结传送门，真门针对复习。
 
 1 普通代码块
     //普通代码块：在方法或语句中出现的{}就称为普通代码块。普通代码块和一般的语句执行顺序由他们在代码中出现的次序决定--“先出现先执行”
-		  public class CodeBlock01{
-		        public static void main(String[] args){
-		            
+		   public class CodeBlock01{
+		         public static void main(String[] args){		            
 		              {
 		                int x=3;
 		                System.out.println("1,普通代码块内的变量x="+x);    
