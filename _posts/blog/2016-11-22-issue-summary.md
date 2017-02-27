@@ -89,6 +89,8 @@ if(isLoaded){
     $interval.cancel(timer);//关闭interval
 }//双击666
 ```
-   
+*  记一次提交代码出现的幺蛾子，到处都是坑啊！！！改好代码之后我熟练地add commit。再review的时候出现这个幺蛾子：
+![commitError](/blog/images/commitError.png)
+   要先git fetch一下。去下远程的分支的改动。在review就可以了！（想不通这里，我在commit之后明明pull --rebase过，为啥还要再去git fetch一下。）
    
 	 
