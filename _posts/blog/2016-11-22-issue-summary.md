@@ -42,6 +42,7 @@ Number( cString )从字符串cString转换得到的数字，包括Int和Float类
    ```
 
 *  js中判断为空：
+
    ```
    1.  判断undefined: 
    if (typeof(tmp) == "undefined"){ 
@@ -71,8 +72,8 @@ Number( cString )从字符串cString转换得到的数字，包括Int和Float类
    if (!tmp) 
    { 
    alert("null or undefined or NaN"); 
-   ```
    提示：一般不那么区分就使用这个足够。
+   ```
 *  bug描述：页面上drop down list控制旁边图片的变化。（在一个div中），当这个div的height超出1000，就angularjs的指令会把它收缩起来。但是
    判断高度的代码$('#tab-height').height()要等图片加载好才能获得正确的高度。问题就来了。怎样确保图片加载好再执行呢？我使用$timeout，可以指定等待加载的时间
    但是这个图片的加载跟网速有关的。有时可能会比较慢。$timeout也不能确保。我使用image的onload方法。出入图片的url，但是其他页面也用了这个指令的，不能每次都要传入图片的url撒。
