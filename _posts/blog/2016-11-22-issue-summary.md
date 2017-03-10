@@ -96,11 +96,9 @@ if(isLoaded){
 *  修改commit的message：
    不需要有代码的改动，直接commit --amend，按Insert键进去编辑模式。改好后Esc键回到命令模式。:wq保存并退出。:q!只退出不保存！
 *  JQuery实现动态的回滚到表单验证出错的地方。
-	假如我们需要去定位一个动态生成的div，我们需要为它指定一个动态的id
-
-	例如:
-
+	假如我们需要去定位一个动态生成的div，我们需要为它指定一个动态的id,例如:
 	前台使用EL进行迭代LIST生成div，为其添加动态的id,生成之后变成下面样式
+	   ```
     <label for="DOB_{{$index}}" id="DOBLabel_{{$index}}" class="standard-label"><span class="required-star">*</span>{{'checkout.traveler.dateOfBirth'
                                 | translate}}</label>
 	<div class="form-element traveler-birth"
@@ -108,23 +106,23 @@ if(isLoaded){
                                 <input type="text" class="form-control" id="DOB_{{$index}}" name="DOB_{{$index}}"
                                        placeholder="MM/DD/YYYY" required>
                             </div>
-
+							   ```
 	我们在使用Jquery获取某个div时需要这样写
-
 	$("#" + 所定义的id变量名);
-
 	而不能写成这样
-
-	$("#所定义的id变量名");  
+	$("#所定义的id变量名");
+    ```	
             function invalidDOB(isInvalidDOB) {
                 for(let i in isInvalidDOB){
+				//获取input前面label标签到页面顶部的距离
                     let topPos = $("#"+"DOBLabel_"+i).offset().top;
                     if(isInvalidDOB[i]){
+					//屏幕滚动到label标签
                         window.scrollTo(0, topPos);
                         return false;
                     }
                 }
                 return true;
             }	
-   
+    ```
 	 
