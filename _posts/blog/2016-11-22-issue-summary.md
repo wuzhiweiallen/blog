@@ -26,6 +26,7 @@ Number( cString )从字符串cString转换得到的数字，包括Int和Float类
    return true; 
    }
    ```
+   ```
    1.  直观，效率低   
    if(s == null || s.equals("")){
    }
@@ -55,7 +56,6 @@ Number( cString )从字符串cString转换得到的数字，包括Int和Float类
    var tmp = 0/0; 
    if(isNaN(tmp)){ 
    alert("NaN");  
-   ```
     说明：如果把 NaN 与任何值（包括其自身）相比得到的结果均是 false，所以要判断某个值是否是 NaN，不能使用 == 或 === 运算符。 
     提示：isNaN() 函数通常用于检测 parseFloat() 和 parseInt() 的结果，以判断它们表示的是否是合法的数字。当然也可以用 isNaN() 函数来检测算数错误，比如用 0 作除数的情况。  
    4.  判断undefined和null: 
