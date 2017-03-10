@@ -91,6 +91,40 @@ if(isLoaded){
 ```
 *  记一次提交代码出现的幺蛾子，到处都是坑啊！！！改好代码之后我熟练地add commit。再review的时候出现这个幺蛾子：
 ![commitError](/blog/images/commitError.png)
-   要先git fetch一下。去下远程的分支的改动。在review就可以了！（想不通这里，我在commit之后明明pull --rebase过，为啥还要再去git fetch一下。）
+   要先git fetch一下。取下远程的分支的改动。再review就可以了！（想不通这里，我在commit之后明明pull --rebase过，为啥还要再去git fetch一下。）
+   还有一次，页面的效果和QA的不一样，但是明明感觉我们的代码都应该是一样的啊，也是pull过master上的代码了。后面git fetch了一下后再pull，有没得问题了！
+*  修改commit的message：
+   不需要有代码的改动，直接commit --amend，按Insert键进去编辑模式。改好后Esc键回到命令模式。:wq保存并退出。:q!只退出不保存！
+*  JQuery实现动态的回滚到表单验证出错的地方。
+	假如我们需要去定位一个动态生成的div，我们需要为它指定一个动态的id
+
+	例如:
+
+	前台使用EL进行迭代LIST生成div，为其添加动态的id,生成之后变成下面样式
+    <label for="DOB_{{$index}}" id="DOBLabel_{{$index}}" class="standard-label"><span class="required-star">*</span>{{'checkout.traveler.dateOfBirth'
+                                | translate}}</label>
+	<div class="form-element traveler-birth"
+                                 data-ng-class="{'has-error': travelerInfo.cruiseformValidated && cruiseTravelerForm.DOB_{{$index}}.$error.required }">
+                                <input type="text" class="form-control" id="DOB_{{$index}}" name="DOB_{{$index}}"
+                                       placeholder="MM/DD/YYYY" required>
+                            </div>
+
+	我们在使用Jquery获取某个div时需要这样写
+
+	$("#" + 所定义的id变量名);
+
+	而不能写成这样
+
+	$("#所定义的id变量名");  
+            function invalidDOB(isInvalidDOB) {
+                for(let i in isInvalidDOB){
+                    let topPos = $("#"+"DOBLabel_"+i).offset().top;
+                    if(isInvalidDOB[i]){
+                        window.scrollTo(0, topPos);
+                        return false;
+                    }
+                }
+                return true;
+            }	
    
 	 
