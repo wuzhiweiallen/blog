@@ -27,38 +27,31 @@ Number( cString )从字符串cString转换得到的数字，包括Int和Float类
    }
    ```
    1.  直观，效率低   
-   ```
    if(s == null || s.equals("")){
    }
-   ```
+
    2.  比较字符串长度, 效率高。
-   ```
+
    if(s == null || s.length() <= 0);
-   }
-   ```
+
    3.  Java SE 6.0才开始提供的方法,效率和方法二几乎相等
-   ```
+
    if(s == null || s.isEmpty());
    } 
    ```
 
 *  js中判断为空：
-   1.  判断undefined: 
-   
    ```
+   1.  判断undefined: 
    if (typeof(tmp) == "undefined"){ 
    alert("undefined");
-   ```
    说明：typeof 返回的是字符串，有六种可能："number"、"string"、"boolean"、"object"、"function"、"undefined" 
-   2.  判断null: 
    
-   ```
+   2.  判断null: 
    if (!tmp && typeof(tmp)!="undefined" && tmp!=0){ 
    alert("null"); 
-   ```
-   3. 判断NaN:
    
-   ```
+   3. 判断NaN:
    var tmp = 0/0; 
    if(isNaN(tmp)){ 
    alert("NaN");  
@@ -67,16 +60,13 @@ Number( cString )从字符串cString转换得到的数字，包括Int和Float类
     提示：isNaN() 函数通常用于检测 parseFloat() 和 parseInt() 的结果，以判断它们表示的是否是合法的数字。当然也可以用 isNaN() 函数来检测算数错误，比如用 0 作除数的情况。  
    4.  判断undefined和null: 
    
-   ```
    var tmp = undefined; 
    if (tmp== undefined) 
    { 
    alert("null or undefined"); 
-   ```
    说明：null==undefined 
    5.  判断undefined、null与NaN: 
    
-   ```
    var tmp = null; 
    if (!tmp) 
    { 
