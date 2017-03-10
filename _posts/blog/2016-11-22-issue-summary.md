@@ -42,19 +42,22 @@ Number( cString )从字符串cString转换得到的数字，包括Int和Float类
    } 
    ```
 
-* js中判断为空：
+*  js中判断为空：
    1.  判断undefined: 
+   
    ```
    if (typeof(tmp) == "undefined"){ 
    alert("undefined");
    ```
- 说明：typeof 返回的是字符串，有六种可能："number"、"string"、"boolean"、"object"、"function"、"undefined" 
+   说明：typeof 返回的是字符串，有六种可能："number"、"string"、"boolean"、"object"、"function"、"undefined" 
    2.  判断null: 
+   
    ```
    if (!tmp && typeof(tmp)!="undefined" && tmp!=0){ 
    alert("null"); 
    ```
    3. 判断NaN:
+   
    ```
    var tmp = 0/0; 
    if(isNaN(tmp)){ 
@@ -62,26 +65,32 @@ Number( cString )从字符串cString转换得到的数字，包括Int和Float类
    ```
     说明：如果把 NaN 与任何值（包括其自身）相比得到的结果均是 false，所以要判断某个值是否是 NaN，不能使用 == 或 === 运算符。 
     提示：isNaN() 函数通常用于检测 parseFloat() 和 parseInt() 的结果，以判断它们表示的是否是合法的数字。当然也可以用 isNaN() 函数来检测算数错误，比如用 0 作除数的情况。  
-   4.  判断undefined和null:  
+   4.  判断undefined和null: 
+   
    ```
    var tmp = undefined; 
    if (tmp== undefined) 
    { 
    alert("null or undefined"); 
    ```
-说明：null==undefined 
+   说明：null==undefined 
    5.  判断undefined、null与NaN: 
+   
    ```
    var tmp = null; 
    if (!tmp) 
    { 
    alert("null or undefined or NaN"); 
    ```
-提示：一般不那么区分就使用这个足够。
+   提示：一般不那么区分就使用这个足够。
 *  bug描述：页面上drop down list控制旁边图片的变化。（在一个div中），当这个div的height超出1000，就angularjs的指令会把它收缩起来。但是
    判断高度的代码$('#tab-height').height()要等图片加载好才能获得正确的高度。问题就来了。怎样确保图片加载好再执行呢？我使用$timeout，可以指定等待加载的时间
    但是这个图片的加载跟网速有关的。有时可能会比较慢。$timeout也不能确保。我使用image的onload方法。出入图片的url，但是其他页面也用了这个指令的，不能每次都要传入图片的url撒。
-   用angularjs的$interval 时间设置100(ms),let images = $('#tab-height img'); 循环图片  直到img.complete  再加上if (typeof myimage.naturalWidth != "undefined" && img.naturalWidth == 0) （图片完全加载好了才能判断的）
+   用angularjs的$interval 时间设置100(ms),let images = $('#tab-height img'); 循环图片  直到img.complete  再加上
+   ```
+   if (typeof myimage.naturalWidth != "undefined" && img.naturalWidth == 0) 
+   ```
+   （图片完全加载好了才能判断的）
    双管齐下确保图片加载好。
 	```
 	if(isLoaded){
